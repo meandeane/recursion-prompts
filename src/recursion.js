@@ -101,7 +101,7 @@ var exponent = function(base, exp) {
 var powerOfTwo = function(n) {    
     if(n < 2) {
       return n === 1; // Edge case of 1 where itself is the power of two
-    } else{
+    } else {
       return powerOfTwo(n/2);
     }
 };
