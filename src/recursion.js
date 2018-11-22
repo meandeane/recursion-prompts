@@ -189,7 +189,7 @@ var divide = function(x, y) {
     }
 
     if (y < 0 && y < x) {
-        return x;
+        return 0;
     }
 
     if ((x - y) < y) {
