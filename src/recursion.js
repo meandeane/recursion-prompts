@@ -253,12 +253,27 @@ var createArray = function(str) {
 
 // 17. Reverse the order of an array
 var reverseArr = function(array) {
+    if(array.length === 1) {
+        return array;
+    }
+
+    if(array.length > 1) {
+        return [array[array.length - 1]].concat(reverseArr(array.slice(0, -1)));
+    }
 };
 
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
 var buildList = function(value, length) {
+    if(length === 1) {
+        return [value];
+    }
+    
+    if(length > 1) {
+        return [value].concat(buildList(value, length - 1));
+    }
+    
 };
 
 // 19. Implement FizzBuzz. Given integer n, return an array of the string representations of 1 to n.
@@ -267,6 +282,20 @@ var buildList = function(value, length) {
 // For numbers which are multiples of both three and five, output “FizzBuzz” instead of the number.
 // fizzBuzz(5) // ['1','2','Fizz','4','Buzz']
 var fizzBuzz = function(n) {
+    if (n === 1) {
+        return ['1'];
+    }    
+    
+    if(n % 3 === 0 && n % 5 === 0) {
+        return (fizzBuzz(n - 1)).concat('FizzBuzz');
+    }else if(n % 3 === 0) {
+        return (fizzBuzz(n - 1)).concat('Fizz');
+    }else if(n % 5 === 0) {
+        return (fizzBuzz(n - 1)).concat('Buzz');
+    }else {
+        return (fizzBuzz(n-1)).concat(n.toString());
+    }
+    
 };
 
 // 20. Count the occurence of a value in a list.
