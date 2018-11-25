@@ -211,9 +211,9 @@ var gcd = function(x, y) {
         return y;
     }else if(y === 0) {
         return x;
+    }else {
+        return gcd(y, x%y);
     }
-        
-
 };
 
 // 15. Write a function that compares each character of two strings and returns true if
@@ -221,11 +221,34 @@ var gcd = function(x, y) {
 // compareStr('house', 'houses') // false
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+    // Base case is when ive reached the last char of shortest string
+    if(str1.length !== str2.length) {
+        return false;
+    }
+    
+    if(str1.length === 0) {
+        return true;
+    }
+    
+    while(str1.length > 0) {
+        if(str1[0] === str2[0]) {
+            return (true, compareStr(str1.slice(1), str2.slice(1)));
+        }else {
+            return false;
+        }  
+    }
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
 var createArray = function(str) {
+    if(str.length === 1) {
+        return [str];
+    }
+    
+    if (str.length > 1) {
+        return [str[0]].concat(createArray(str.slice(1)));      
+    }
 };
 
 // 17. Reverse the order of an array
